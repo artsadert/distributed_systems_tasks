@@ -1,0 +1,9 @@
+{
+  "avg_latency_ms": 1.342806282193718,
+  "broker": "rabbitmq",
+  "duration_sec": 30,
+  "errors": 0,
+  "max_latency_ms": 20,
+  "messages_received": 79208,
+  "p95_latency_ms": 2
+}

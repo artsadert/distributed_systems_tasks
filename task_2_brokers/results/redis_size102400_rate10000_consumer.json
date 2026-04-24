@@ -1,0 +1,9 @@
+{
+  "avg_latency_ms": 0.8236318341324904,
+  "broker": "redis",
+  "duration_sec": 30,
+  "errors": 0,
+  "max_latency_ms": 15,
+  "messages_received": 37331,
+  "p95_latency_ms": 1
+}
