@@ -1,9 +1,9 @@
 {
-  "actual_rate": 3040.5985817694946,
+  "actual_rate": 3096.9940114237993,
   "broker": "redis",
-  "duration_sec": 29.995738519,
+  "duration_sec": 29.996506179,
   "errors": 0,
   "message_size": 10240,
-  "messages_sent": 91205,
+  "messages_sent": 92899,
   "target_rate": 5000
 }

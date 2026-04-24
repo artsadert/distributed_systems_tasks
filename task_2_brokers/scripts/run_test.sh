@@ -11,7 +11,12 @@ fi
 
 SIZES=("128" "1024" "10240" "102400")
 RATES=("1000" "5000" "10000")
-DURATION="30s"
+DURATION_SEC=30
+SLEEP_DELAY=2
+DRAIN_SEC=5
+PRODUCER_DURATION="${DURATION_SEC}s"
+# Consumer runs longer: covers the sleep delay before producer starts + drain time after producer stops
+CONSUMER_DURATION="$((DURATION_SEC + SLEEP_DELAY + DRAIN_SEC))s"
 
 mkdir -p results
 
@@ -20,28 +25,28 @@ for SIZE in "${SIZES[@]}"; do
         QUEUE="${QUEUE_PREFIX}_${SIZE}_${RATE}"
         METRICS_PREFIX="${BROKER}_size${SIZE}_rate${RATE}"
         echo "Test: Broker=$BROKER, Size=$SIZE, Rate=$RATE, Queue=$QUEUE"
-        
+
         ./bin/consumer \
             --broker "$BROKER" \
             --uri "$URI" \
             --queue "$QUEUE" \
-            --duration "$DURATION" \
+            --duration "$CONSUMER_DURATION" \
             --metrics-file "results/${METRICS_PREFIX}_consumer.json" \
             --log-level warn &
         CONSUMER_PID=$!
-        
-        sleep 2
-        
+
+        sleep $SLEEP_DELAY
+
         ./bin/producer \
             --broker "$BROKER" \
             --uri "$URI" \
             --queue "$QUEUE" \
             --size "$SIZE" \
             --rate "$RATE" \
-            --duration "$DURATION" \
+            --duration "$PRODUCER_DURATION" \
             --metrics-file "results/${METRICS_PREFIX}_producer.json" \
             --log-level info
-        
+
         wait $CONSUMER_PID
     done
 done

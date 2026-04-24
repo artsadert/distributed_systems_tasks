@@ -6,7 +6,12 @@ set -e
 BROKERS=("rabbitmq" "redis")
 SIZES=("128" "1024" "10240" "102400")
 RATES=("1000" "5000" "10000")
-DURATION="30s"
+DURATION_SEC=30
+SLEEP_DELAY=1
+DRAIN_SEC=5
+PRODUCER_DURATION="${DURATION_SEC}s"
+# Consumer runs longer: covers the sleep delay before producer starts + drain time after producer stops
+CONSUMER_DURATION="$((DURATION_SEC + SLEEP_DELAY + DRAIN_SEC))s"
 
 # URI для брокеров
 declare -A URIS
@@ -41,13 +46,13 @@ for BROKER in "${BROKERS[@]}"; do
         --broker "$BROKER" \
         --uri "$URI" \
         --queue "$QUEUE" \
-        --duration "$DURATION" \
+        --duration "$CONSUMER_DURATION" \
         --metrics-file "results/${METRICS_PREFIX}_consumer.json" \
         --log-level warn &
       consumer_pid=$!
 
       # Даём consumer время на подключение
-      sleep 1
+      sleep $SLEEP_DELAY
 
       # Запускаем producer в фоне
       ./bin/producer \
@@ -56,7 +61,7 @@ for BROKER in "${BROKERS[@]}"; do
         --queue "$QUEUE" \
         --size "$SIZE" \
         --rate "$RATE" \
-        --duration "$DURATION" \
+        --duration "$PRODUCER_DURATION" \
         --metrics-file "results/${METRICS_PREFIX}_producer.json" \
         --log-level info &
       producer_pid=$!

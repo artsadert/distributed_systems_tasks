@@ -1,9 +1,9 @@
 {
-  "actual_rate": 1580.4561890009575,
+  "actual_rate": 469.6369976739308,
   "broker": "rabbitmq",
-  "duration_sec": 29.990707955,
+  "duration_sec": 29.997636621,
   "errors": 0,
   "message_size": 128,
-  "messages_sent": 47399,
+  "messages_sent": 14088,
   "target_rate": 5000
 }
