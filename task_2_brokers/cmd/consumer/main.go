@@ -51,6 +51,8 @@ func main() {
 		b, err = broker.NewRabbitMQBroker(*brokerURI, *queueName)
 	case "redis":
 		b, err = broker.NewRedisBroker(*brokerURI, *queueName)
+	case "artmq":
+		b, err = broker.NewArtMQBroker(*brokerURI, *queueName)
 	default:
 		logrus.Fatalf("Unknown broker type: %s", *brokerType)
 	}
