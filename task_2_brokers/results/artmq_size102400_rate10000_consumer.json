@@ -1,9 +1,9 @@
 {
-  "avg_latency_ms": 9.540314553055943,
+  "avg_latency_ms": 6.729226953286482,
   "broker": "artmq",
   "duration_sec": 37,
   "errors": 0,
-  "max_latency_ms": 26,
-  "messages_received": 5023,
-  "p95_latency_ms": 17
+  "max_latency_ms": 33,
+  "messages_received": 7257,
+  "p95_latency_ms": 15
 }

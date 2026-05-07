@@ -1,5 +1,7 @@
 github.com/artsadert/artmq-client-go v0.0.0-20260507162129-56943a32cfb0 h1:LJyNhLl22JV1lC+Mju0xDU8D56RSlI1fB3sLdEGGxc8=
 github.com/artsadert/artmq-client-go v0.0.0-20260507162129-56943a32cfb0/go.mod h1:GT2i9WbS7BZe1UKEjGts+93/AXALdLOCocGHVuWw680=
+github.com/artsadert/artmq-client-go v0.0.0-20260507173532-23e4ffe5b469 h1:SNSkp0W3vTF45f+28aDvIi6m/53SBQX97CzkKFKbbOQ=
+github.com/artsadert/artmq-client-go v0.0.0-20260507173532-23e4ffe5b469/go.mod h1:GT2i9WbS7BZe1UKEjGts+93/AXALdLOCocGHVuWw680=
 github.com/bsm/ginkgo/v2 v2.12.0 h1:Ny8MWAHyOepLGlLKYmXG4IEkioBysk6GpaRTLC8zwWs=
 github.com/bsm/ginkgo/v2 v2.12.0/go.mod h1:SwYbGRRDovPVboqFv0tPTcG1sN61LM1Z4ARdbAV9g4c=
 github.com/bsm/gomega v1.27.10 h1:yeMWxP2pV2fG3FgAODIY8EiRE3dy0aeFYt4l7wh6yKA=

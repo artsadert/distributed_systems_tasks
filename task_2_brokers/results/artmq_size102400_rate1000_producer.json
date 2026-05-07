@@ -1,9 +1,9 @@
 {
-  "actual_rate": 254.74876066499476,
+  "actual_rate": 213.90460374600033,
   "broker": "artmq",
-  "duration_sec": 30.002108666,
+  "duration_sec": 30.018054252,
   "errors": 0,
   "message_size": 102400,
-  "messages_sent": 7643,
+  "messages_sent": 6421,
   "target_rate": 1000
 }
